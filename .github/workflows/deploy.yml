@@ -1,0 +1,36 @@
+name: Deploy TechLearn to InfinityFree
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository files
+        uses: actions/checkout@v4
+
+      - name: FTP deployment dry run
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          local-dir: ./
+          server-dir: /htdocs/
+          dry-run: true
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            includes/database.php
+            **/*.zip
+            **/index2.html
+            **/.htaccess
+            **/robots.txt
+            **/favicon.ico
