@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="تک‌لرن؛ آموزش تکنولوژی، اندروید، کامپیوتر و لینوکس">
+    <title>تک‌لرن | آموزش تکنولوژی</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .category-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 24px 12px;
+            min-height: 125px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 16px;
+            background: rgba(255,255,255,.04);
+            color: inherit;
+            text-decoration: none;
+            transition: .2s;
+        }
+        .category-card:hover {
+            border-color: #7185ff;
+            background: rgba(100,120,255,.15);
+            transform: translateY(-3px);
+        }
+        .category-icon { font-size: 30px; }
+        .category-name { font-weight: bold; }
+        .article-tools {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+        .article-tools input {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.15);
+            background: #101a2e;
+            color: #f1f5ff;
+            font: inherit;
+        }
+        .article-tools input:focus {
+            outline: 2px solid #65a5ff;
+        }
+        .article-card[hidden] {
+            display: none !important;
+        }
+        .no-results {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            color: #aab6cc;
+        }
+        .article-category {
+            display: inline-block;
+            margin: 8px 0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(100,120,255,.15);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="topbar">
+    <a href="index.html" class="logo">تک‌لرن<span>.</span></a>
+    <nav>
+        <a href="index.html">خانه</a>
+        <a href="#articles">آموزش‌ها</a>
+        <a href="rom-hub/index.html" class="rom-link">ROM Hub</a>
+        <a href="recovery-hub/index.html" class="rom-link">Recovery Hub</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">آموزش دنیای فناوری</span>
+            <h1>به دنیای <span>تک‌لرن</span> خوش آمدید</h1>
+            <p>اینجا دنیای آموزش تکنولوژی، اندروید، کامپیوتر و لینوکس است.</p>
+            <div class="hero-actions">
+                <a href="#categories" class="btn btn-primary">مشاهده دسته‌بندی‌ها ←</a>
+                <a href="#articles" class="btn btn-secondary">آخرین آموزش‌ها</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="categories">
+        <div class="section-heading">
+            <div>
+                <h2>دسته‌بندی آموزش‌ها</h2>
+                <p>موضوع موردنظرت رو انتخاب کن.</p>
+            </div>
+        </div>
+
+        <div class="category-grid">
+            <a href="#articles" class="category-card" data-filter="all">
+                <span class="category-icon">📚</span>
+                <span class="category-name">همه آموزش‌ها</span>
+            </a>
+            <a href="#articles" class="category-card" data-filter="android">
+                <span class="category-icon">🤖</span>
+                <span class="category-name">آموزش اندروید</span>
+            </a>
+            <a href="#articles" class="category-card" data-filter="phone">
+                <span class="category-icon">📱</span>
+                <span class="category-name">آموزش گوشی</span>
+            </a>
+            <a href="#articles" class="category-card" data-filter="computer">
+                <span class="category-icon">💻</span>
+                <span class="category-name">آموزش کامپیوتر</span>
+            </a>
+            <a href="#articles" class="category-card" data-filter="windows">
+                <span class="category-icon">🪟</span>
+                <span class="category-name">آموزش ویندوز</span>
+            </a>
+            <a href="#articles" class="category-card" data-filter="linux">
+                <span class="category-icon">🐧</span>
+                <span class="category-name">آموزش لینوکس</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="articles">
+        <div class="section-heading">
+            <div>
+                <h2>آخرین آموزش‌ها</h2>
+                <p>آموزش‌های منتشرشده در تک‌لرن</p>
+            </div>
+        </div>
+
+        <div class="article-tools">
+            <input type="search" id="articleSearch"
+                   placeholder="جست‌وجو در عنوان و توضیحات آموزش‌ها..."
+                   aria-label="جست‌وجوی آموزش‌ها">
+        </div>
+
+        <div class="article-grid" id="articleGrid">
+            <article class="article-card" data-category="phone">
+                <h3>آموزش نصب انواع کاستوم رام ها</h3>
+                <span class="article-category">آموزش گوشی</span>
+                <p>آشنایی با کاستوم رام‌ها، ریکاوری‌ها و روش‌های نصب رام روی گوشی‌های اندرویدی.</p>
+                <a class="read-more" href="articles/article-5a5c57082a11578d.html">
+                    مطالعه آموزش ←
+                </a>
+            </article>
+        </div>
+        <p class="no-results" id="noResults">آموزشی با این عبارت یا دسته‌بندی پیدا نشد.</p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© تمامی حقوق برای تک‌لرن محفوظ است.</p>
+</footer>
+
+<script>
+(() => {
+    const search = document.getElementById('articleSearch');
+    const cards = [...document.querySelectorAll('#articleGrid .article-card')];
+    const filters = [...document.querySelectorAll('.category-card[data-filter]')];
+    const noResults = document.getElementById('noResults');
+    let activeCategory = 'all';
+
+    function filterArticles() {
+        const query = search.value.trim().toLocaleLowerCase('fa');
+        let visible = 0;
+
+        cards.forEach(card => {
+            const categoryMatch =
+                activeCategory === 'all' ||
+                card.dataset.category === activeCategory;
+            const textMatch = card.textContent.toLocaleLowerCase('fa').includes(query);
+            const show = categoryMatch && textMatch;
+
+            card.hidden = !show;
+            if (show) visible++;
+        });
+
+        noResults.style.display = visible ? 'none' : 'block';
+    }
+
+    search.addEventListener('input', filterArticles);
+
+    filters.forEach(link => {
+        link.addEventListener('click', () => {
+            activeCategory = link.dataset.filter;
+            filterArticles();
+        });
+    });
+})();
+</script>
+</body>
+</html>
